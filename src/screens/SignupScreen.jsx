@@ -1,10 +1,11 @@
 import React from 'react'
 import FooterWithSocialLinks from '../components/Footer'
+import RegisterCard from '../components/Register'
 
 const SignupScreen = () => {
   return (
     <>
-    <div>Register card</div>
+    <div><RegisterCard /></div>
     <div><FooterWithSocialLinks /></div>
     </>
   )
