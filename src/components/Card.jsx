@@ -5,22 +5,24 @@ import {
     CardBody,
     CardFooter,
     Typography,
-    Button,
   } from "@material-tailwind/react";
 
-const FoodCard = () => {
-  return (
-    <div>
+  
+const FoodCard = (props) => {
+  let options = props.options;
+  let priceOptions = Object.keys(options)
+    return (
+    <span>
          <Card className="mt-6 w-96 overflow-hidden">
                 <CardHeader color="blue-gray" className="relative h-56">
-                  <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="card-image"/>
+                  <img src= {props.imgSrc} alt="Food-image" className='object-cover h-56 w-96 '/>
                 </CardHeader>
                 <CardBody>
                   <Typography variant="h5" color="blue-gray" className="mb-2">
-                    Butter Chicken
+                    {props.name}
                   </Typography>
                   <Typography>
-                    The place is close to Barceloneta 
+                    {props.desc} 
                   </Typography>
                 </CardBody>
                 <CardFooter className="pt-0">
@@ -33,8 +35,11 @@ const FoodCard = () => {
                       })}
                     </select>
                     <select>
-                      <option value="half">Half</option>
-                      <option value="full">Full</option>
+                      {
+                        priceOptions.map((data) => (
+                          <option key={data} value={data}>{data}</option>
+                        ))
+                      }
                     </select>
                     <div className=" inline ">
                       Item Price
@@ -42,7 +47,7 @@ const FoodCard = () => {
                   </div>
                 </CardFooter>
             </Card>
-    </div>
+    </span>
   )
 }
 
